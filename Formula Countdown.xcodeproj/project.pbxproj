@@ -486,6 +486,7 @@
 				32AAE9C61BB7327A00E2E887 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		32AAE9C71BB7327A00E2E887 /* Build configuration list for PBXNativeTarget "Formula CountdownTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +495,7 @@
 				32AAE9C91BB7327A00E2E887 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		32AAE9CA1BB7327A00E2E887 /* Build configuration list for PBXNativeTarget "Formula CountdownUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +504,7 @@
 				32AAE9CC1BB7327A00E2E887 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
