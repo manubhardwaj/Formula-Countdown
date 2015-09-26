@@ -1,0 +1,509 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		32AAE9A01BB7327900E2E887 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AAE99F1BB7327900E2E887 /* AppDelegate.swift */; };
+		32AAE9A21BB7327900E2E887 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AAE9A11BB7327900E2E887 /* ViewController.swift */; };
+		32AAE9A51BB7327900E2E887 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AAE9A31BB7327900E2E887 /* Main.storyboard */; };
+		32AAE9A71BB7327900E2E887 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32AAE9A61BB7327900E2E887 /* Assets.xcassets */; };
+		32AAE9AA1BB7327900E2E887 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AAE9A81BB7327900E2E887 /* LaunchScreen.storyboard */; };
+		32AAE9B51BB7327A00E2E887 /* Formula_CountdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AAE9B41BB7327A00E2E887 /* Formula_CountdownTests.swift */; };
+		32AAE9C01BB7327A00E2E887 /* Formula_CountdownUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AAE9BF1BB7327A00E2E887 /* Formula_CountdownUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		32AAE9B11BB7327A00E2E887 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32AAE9941BB7327900E2E887 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32AAE99B1BB7327900E2E887;
+			remoteInfo = "Formula Countdown";
+		};
+		32AAE9BC1BB7327A00E2E887 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32AAE9941BB7327900E2E887 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32AAE99B1BB7327900E2E887;
+			remoteInfo = "Formula Countdown";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		32AAE99C1BB7327900E2E887 /* Formula Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Formula Countdown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32AAE99F1BB7327900E2E887 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		32AAE9A11BB7327900E2E887 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		32AAE9A41BB7327900E2E887 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		32AAE9A61BB7327900E2E887 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		32AAE9A91BB7327900E2E887 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		32AAE9AB1BB7327900E2E887 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32AAE9B01BB7327A00E2E887 /* Formula CountdownTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Formula CountdownTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32AAE9B41BB7327A00E2E887 /* Formula_CountdownTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formula_CountdownTests.swift; sourceTree = "<group>"; };
+		32AAE9B61BB7327A00E2E887 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32AAE9BB1BB7327A00E2E887 /* Formula CountdownUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Formula CountdownUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32AAE9BF1BB7327A00E2E887 /* Formula_CountdownUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formula_CountdownUITests.swift; sourceTree = "<group>"; };
+		32AAE9C11BB7327A00E2E887 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		32AAE9991BB7327900E2E887 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32AAE9AD1BB7327A00E2E887 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32AAE9B81BB7327A00E2E887 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		32AAE9931BB7327900E2E887 = {
+			isa = PBXGroup;
+			children = (
+				32AAE99E1BB7327900E2E887 /* Formula Countdown */,
+				32AAE9B31BB7327A00E2E887 /* Formula CountdownTests */,
+				32AAE9BE1BB7327A00E2E887 /* Formula CountdownUITests */,
+				32AAE99D1BB7327900E2E887 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		32AAE99D1BB7327900E2E887 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32AAE99C1BB7327900E2E887 /* Formula Countdown.app */,
+				32AAE9B01BB7327A00E2E887 /* Formula CountdownTests.xctest */,
+				32AAE9BB1BB7327A00E2E887 /* Formula CountdownUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32AAE99E1BB7327900E2E887 /* Formula Countdown */ = {
+			isa = PBXGroup;
+			children = (
+				32AAE99F1BB7327900E2E887 /* AppDelegate.swift */,
+				32AAE9A11BB7327900E2E887 /* ViewController.swift */,
+				32AAE9A31BB7327900E2E887 /* Main.storyboard */,
+				32AAE9A61BB7327900E2E887 /* Assets.xcassets */,
+				32AAE9A81BB7327900E2E887 /* LaunchScreen.storyboard */,
+				32AAE9AB1BB7327900E2E887 /* Info.plist */,
+			);
+			path = "Formula Countdown";
+			sourceTree = "<group>";
+		};
+		32AAE9B31BB7327A00E2E887 /* Formula CountdownTests */ = {
+			isa = PBXGroup;
+			children = (
+				32AAE9B41BB7327A00E2E887 /* Formula_CountdownTests.swift */,
+				32AAE9B61BB7327A00E2E887 /* Info.plist */,
+			);
+			path = "Formula CountdownTests";
+			sourceTree = "<group>";
+		};
+		32AAE9BE1BB7327A00E2E887 /* Formula CountdownUITests */ = {
+			isa = PBXGroup;
+			children = (
+				32AAE9BF1BB7327A00E2E887 /* Formula_CountdownUITests.swift */,
+				32AAE9C11BB7327A00E2E887 /* Info.plist */,
+			);
+			path = "Formula CountdownUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		32AAE99B1BB7327900E2E887 /* Formula Countdown */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32AAE9C41BB7327A00E2E887 /* Build configuration list for PBXNativeTarget "Formula Countdown" */;
+			buildPhases = (
+				32AAE9981BB7327900E2E887 /* Sources */,
+				32AAE9991BB7327900E2E887 /* Frameworks */,
+				32AAE99A1BB7327900E2E887 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Formula Countdown";
+			productName = "Formula Countdown";
+			productReference = 32AAE99C1BB7327900E2E887 /* Formula Countdown.app */;
+			productType = "com.apple.product-type.application";
+		};
+		32AAE9AF1BB7327A00E2E887 /* Formula CountdownTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32AAE9C71BB7327A00E2E887 /* Build configuration list for PBXNativeTarget "Formula CountdownTests" */;
+			buildPhases = (
+				32AAE9AC1BB7327A00E2E887 /* Sources */,
+				32AAE9AD1BB7327A00E2E887 /* Frameworks */,
+				32AAE9AE1BB7327A00E2E887 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32AAE9B21BB7327A00E2E887 /* PBXTargetDependency */,
+			);
+			name = "Formula CountdownTests";
+			productName = "Formula CountdownTests";
+			productReference = 32AAE9B01BB7327A00E2E887 /* Formula CountdownTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		32AAE9BA1BB7327A00E2E887 /* Formula CountdownUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32AAE9CA1BB7327A00E2E887 /* Build configuration list for PBXNativeTarget "Formula CountdownUITests" */;
+			buildPhases = (
+				32AAE9B71BB7327A00E2E887 /* Sources */,
+				32AAE9B81BB7327A00E2E887 /* Frameworks */,
+				32AAE9B91BB7327A00E2E887 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32AAE9BD1BB7327A00E2E887 /* PBXTargetDependency */,
+			);
+			name = "Formula CountdownUITests";
+			productName = "Formula CountdownUITests";
+			productReference = 32AAE9BB1BB7327A00E2E887 /* Formula CountdownUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		32AAE9941BB7327900E2E887 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Manu Bhardwaj";
+				TargetAttributes = {
+					32AAE99B1BB7327900E2E887 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = J58G7T27S8;
+					};
+					32AAE9AF1BB7327A00E2E887 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = J58G7T27S8;
+						TestTargetID = 32AAE99B1BB7327900E2E887;
+					};
+					32AAE9BA1BB7327A00E2E887 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = J58G7T27S8;
+						TestTargetID = 32AAE99B1BB7327900E2E887;
+					};
+				};
+			};
+			buildConfigurationList = 32AAE9971BB7327900E2E887 /* Build configuration list for PBXProject "Formula Countdown" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 32AAE9931BB7327900E2E887;
+			productRefGroup = 32AAE99D1BB7327900E2E887 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				32AAE99B1BB7327900E2E887 /* Formula Countdown */,
+				32AAE9AF1BB7327A00E2E887 /* Formula CountdownTests */,
+				32AAE9BA1BB7327A00E2E887 /* Formula CountdownUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		32AAE99A1BB7327900E2E887 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32AAE9AA1BB7327900E2E887 /* LaunchScreen.storyboard in Resources */,
+				32AAE9A71BB7327900E2E887 /* Assets.xcassets in Resources */,
+				32AAE9A51BB7327900E2E887 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32AAE9AE1BB7327A00E2E887 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32AAE9B91BB7327A00E2E887 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		32AAE9981BB7327900E2E887 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32AAE9A21BB7327900E2E887 /* ViewController.swift in Sources */,
+				32AAE9A01BB7327900E2E887 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32AAE9AC1BB7327A00E2E887 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32AAE9B51BB7327A00E2E887 /* Formula_CountdownTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32AAE9B71BB7327A00E2E887 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32AAE9C01BB7327A00E2E887 /* Formula_CountdownUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		32AAE9B21BB7327A00E2E887 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32AAE99B1BB7327900E2E887 /* Formula Countdown */;
+			targetProxy = 32AAE9B11BB7327A00E2E887 /* PBXContainerItemProxy */;
+		};
+		32AAE9BD1BB7327A00E2E887 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32AAE99B1BB7327900E2E887 /* Formula Countdown */;
+			targetProxy = 32AAE9BC1BB7327A00E2E887 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		32AAE9A31BB7327900E2E887 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32AAE9A41BB7327900E2E887 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		32AAE9A81BB7327900E2E887 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32AAE9A91BB7327900E2E887 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		32AAE9C21BB7327A00E2E887 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		32AAE9C31BB7327A00E2E887 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		32AAE9C51BB7327A00E2E887 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Formula Countdown/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "info.bhardwaj.manu.Formula-Countdown";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		32AAE9C61BB7327A00E2E887 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Formula Countdown/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "info.bhardwaj.manu.Formula-Countdown";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		32AAE9C81BB7327A00E2E887 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Formula CountdownTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "info.bhardwaj.manu.Formula-CountdownTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Formula Countdown.app/Formula Countdown";
+			};
+			name = Debug;
+		};
+		32AAE9C91BB7327A00E2E887 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Formula CountdownTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "info.bhardwaj.manu.Formula-CountdownTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Formula Countdown.app/Formula Countdown";
+			};
+			name = Release;
+		};
+		32AAE9CB1BB7327A00E2E887 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Formula CountdownUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "info.bhardwaj.manu.Formula-CountdownUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Formula Countdown";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		32AAE9CC1BB7327A00E2E887 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Formula CountdownUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "info.bhardwaj.manu.Formula-CountdownUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Formula Countdown";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		32AAE9971BB7327900E2E887 /* Build configuration list for PBXProject "Formula Countdown" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32AAE9C21BB7327A00E2E887 /* Debug */,
+				32AAE9C31BB7327A00E2E887 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32AAE9C41BB7327A00E2E887 /* Build configuration list for PBXNativeTarget "Formula Countdown" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32AAE9C51BB7327A00E2E887 /* Debug */,
+				32AAE9C61BB7327A00E2E887 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		32AAE9C71BB7327A00E2E887 /* Build configuration list for PBXNativeTarget "Formula CountdownTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32AAE9C81BB7327A00E2E887 /* Debug */,
+				32AAE9C91BB7327A00E2E887 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		32AAE9CA1BB7327A00E2E887 /* Build configuration list for PBXNativeTarget "Formula CountdownUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32AAE9CB1BB7327A00E2E887 /* Debug */,
+				32AAE9CC1BB7327A00E2E887 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 32AAE9941BB7327900E2E887 /* Project object */;
+}
