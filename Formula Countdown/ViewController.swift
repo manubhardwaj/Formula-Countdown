@@ -9,33 +9,39 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    var currentValue: Int = 0
-
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func showAlert() {
-        
-        let message = "The value of the slider is: \(currentValue)"
-        let alert = UIAlertController(title: "Hello, World",
-                                      message: message, preferredStyle: .Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
-        
-    }
     
-    @IBAction func sliderMoved(slider: UISlider) {
-        currentValue = lroundf(slider.value)
+    @IBOutlet weak var mainValue: UITextField!
+    @IBOutlet weak var mainDate: UIDatePicker!
+    
+    @IBAction func mainDateChanged(sender: UIDatePicker) {
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        let tmpStartDate = dateFormatter.dateFromString("2016-06-04T00:00:00Z")
+        let tmpEndDate = dateFormatter.dateFromString("2016-12-23T00:00:00Z")
+        
+        let tmpTotalTime = (tmpEndDate!.timeIntervalSince1970 - tmpStartDate!.timeIntervalSince1970)
+        
+        let tmpElapsedTime = (mainDate.date.timeIntervalSince1970 - tmpStartDate!.timeIntervalSince1970)
+        
+        let totalValue = 230.8 - (230.8-173.8)*tmpElapsedTime/tmpTotalTime
+        
+        mainValue.text = String(totalValue, "%.1f")
+        
     }
 
+    @IBAction func mainDateValueChanged(sender: UITextField) {
+        
+    }
 }
 
