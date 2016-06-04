@@ -9,9 +9,26 @@
 import UIKit
 
 class ViewController: UIViewController {
-        
+    
+    @IBOutlet weak var mainDate: UIDatePicker!
+    @IBOutlet weak var mainLabel: UILabel!
+    
+    var m_startDate: NSDate = NSDate()
+    var m_endDate: NSDate = NSDate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        m_startDate = dateFormatter.dateFromString("2016-06-04T00:00:00Z")!
+        m_endDate = dateFormatter.dateFromString("2016-12-23T00:00:00Z")!
+        
+        mainDate.minimumDate = m_startDate
+        mainDate.maximumDate = m_endDate
+        
+        mainDateChanged(mainDate)
     }
   
     override func didReceiveMemoryWarning() {
@@ -19,29 +36,21 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var mainValue: UITextField!
-    @IBOutlet weak var mainDate: UIDatePicker!
-    
     @IBAction func mainDateChanged(sender: UIDatePicker) {
         
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let tmpTotalTime = (m_endDate.timeIntervalSince1970 - m_startDate.timeIntervalSince1970)
         
-        let tmpStartDate = dateFormatter.dateFromString("2016-06-04T00:00:00Z")
-        let tmpEndDate = dateFormatter.dateFromString("2016-12-23T00:00:00Z")
+        let tmpElapsedTime = (mainDate.date.timeIntervalSince1970 - m_startDate.timeIntervalSince1970)
         
-        let tmpTotalTime = (tmpEndDate!.timeIntervalSince1970 - tmpStartDate!.timeIntervalSince1970)
+        let tmpHighValue: Double = 100
+        let tmpLowValue: Double = 0
         
-        let tmpElapsedTime = (mainDate.date.timeIntervalSince1970 - tmpStartDate!.timeIntervalSince1970)
+        let tmpTotalValue: Double = tmpHighValue - (tmpHighValue - tmpLowValue)*tmpElapsedTime/tmpTotalTime
         
-        let totalValue = 230.8 - (230.8-173.8)*tmpElapsedTime/tmpTotalTime
+        mainLabel.text = String(format: "%.1f", tmpTotalValue)
         
-        mainValue.text = String(totalValue, "%.1f")
         
     }
 
-    @IBAction func mainDateValueChanged(sender: UITextField) {
-        
-    }
 }
 

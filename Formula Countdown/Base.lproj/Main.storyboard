@@ -18,13 +18,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jpQ-yk-btD" userLabel="mainView">
-                                <rect key="frame" x="130" y="183" width="340" height="234"/>
+                                <rect key="frame" x="130" y="20" width="340" height="580"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TG0-cq-ph1">
-                                        <rect key="frame" x="158" y="140" width="22" height="22"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apy-RT-gDs" userLabel="settingsButton">
+                                        <rect key="frame" x="298" y="8" width="22" height="22"/>
+                                        <state key="normal" title="⚙"/>
+                                        <connections>
+                                            <segue destination="kby-m4-Pik" kind="popoverPresentation" popoverAnchorView="apy-RT-gDs" id="Kit-qh-ni5">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
                                     </button>
-                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="M7c-1A-3NE" userLabel="mainDate">
-                                        <rect key="frame" x="20" y="78" width="300" height="57"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxN-Ee-RFD" userLabel="mainLabel" colorLabel="IBBuiltInLabel-Green">
+                                        <rect key="frame" x="70" y="213" width="200" height="106"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" cocoaTouchSystemColor="lightTextColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="M7c-1A-3NE" userLabel="mainDate" colorLabel="IBBuiltInLabel-Blue">
+                                        <rect key="frame" x="20" y="459" width="300" height="57"/>
                                         <date key="date" timeIntervalSinceReferenceDate="486686281.07417899">
                                             <!--2016-06-03 22:38:01 +0000-->
                                         </date>
@@ -38,41 +51,128 @@
                                             <action selector="mainDateChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="v3N-zc-IfP"/>
                                         </connections>
                                     </datePicker>
-                                    <textField clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="dWf-J3-UgC" userLabel="mainValue">
-                                        <rect key="frame" x="96" y="26" width="150" height="30"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="231.3">
-                                                <attributes>
-                                                    <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <font key="NSFont" size="66" name="HelveticaNeue-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="dateChanged" destination="BYZ-38-t0r" eventType="editingDidEnd" id="I3E-Ux-eoh"/>
-                                            <action selector="mainDateValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Pvh-HF-PiS"/>
-                                        </connections>
-                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jpQ-yk-btD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HQ7-wV-rz2"/>
-                            <constraint firstItem="jpQ-yk-btD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JJD-zP-CTk"/>
+                            <constraint firstItem="jpQ-yk-btD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Dvw-ZL-NmS"/>
+                            <constraint firstItem="jpQ-yk-btD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="awV-FR-d4P"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mainDate" destination="M7c-1A-3NE" id="cPE-El-NmM"/>
-                        <outlet property="mainValue" destination="dWf-J3-UgC" id="ZTO-Pr-YCX"/>
+                        <outlet property="mainLabel" destination="ZxN-Ee-RFD" id="J4H-o1-JDG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="777" y="307"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="xaj-ur-D5Z">
+            <objects>
+                <viewController id="kby-m4-Pik" customClass="SettingsViewController" customModule="Formula_Countdown" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YBr-RK-A5K"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jbq-oL-24E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="foI-NE-aHP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BLc-8G-PC4" userLabel="settingsView">
+                                <rect key="frame" x="133" y="0.0" width="335" height="600"/>
+                                <subviews>
+                                    <view alpha="0.75" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L87-ZB-jwD" userLabel="epochOneView">
+                                        <rect key="frame" x="0.0" y="30" width="335" height="126"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbR-jP-h5H" userLabel="epochValue">
+                                                <rect key="frame" x="75" y="29" width="168" height="30"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                <connections>
+                                                    <action selector="validateEpochValues" destination="kby-m4-Pik" eventType="valueChanged" id="zzC-SR-LN4"/>
+                                                    <outlet property="delegate" destination="kby-m4-Pik" id="C4z-w8-Ygw"/>
+                                                </connections>
+                                            </textField>
+                                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="AMC-8i-Fou" userLabel="epochDate">
+                                                <rect key="frame" x="3" y="67" width="332" height="59"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="486696906.00630301">
+                                                    <!--2016-06-04 01:35:06 +0000-->
+                                                </date>
+                                            </datePicker>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-dw-z40" userLabel="epochTitle">
+                                                <rect key="frame" x="18" y="33" width="49" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wz-OU-Bbz" userLabel="cancelButton">
+                                        <rect key="frame" x="186" y="298" width="48" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelSettings" destination="kby-m4-Pik" eventType="touchUpInside" id="2Zg-N5-aBT"/>
+                                        </connections>
+                                    </button>
+                                    <view alpha="0.75" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QCs-dM-Nqt" userLabel="epochTwoView">
+                                        <rect key="frame" x="0.0" y="164" width="335" height="126"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vEJ-G5-oGn" userLabel="epochValue">
+                                                <rect key="frame" x="75" y="29" width="168" height="30"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                            </textField>
+                                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Z72-3M-47C" userLabel="epochDate">
+                                                <rect key="frame" x="3" y="67" width="332" height="59"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="486696906.00630301">
+                                                    <!--2016-06-04 01:35:06 +0000-->
+                                                </date>
+                                            </datePicker>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZj-BH-4yk" userLabel="epochTitle">
+                                                <rect key="frame" x="32" y="33" width="35" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3P-6I-u1s" userLabel="saveButton">
+                                        <rect key="frame" x="111" y="298" width="34" height="30"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveSettings" destination="kby-m4-Pik" eventType="touchUpInside" id="E5E-pC-ecc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="QCs-dM-Nqt" firstAttribute="centerX" secondItem="BLc-8G-PC4" secondAttribute="centerX" id="3Kf-NG-IPs"/>
+                                    <constraint firstItem="L87-ZB-jwD" firstAttribute="centerX" secondItem="BLc-8G-PC4" secondAttribute="centerX" id="vn7-2C-fAG"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BLc-8G-PC4" firstAttribute="centerY" secondItem="foI-NE-aHP" secondAttribute="centerY" id="9v6-1x-H9r"/>
+                            <constraint firstItem="BLc-8G-PC4" firstAttribute="centerX" secondItem="foI-NE-aHP" secondAttribute="centerX" id="z30-K8-gsp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="epochOneDate" destination="AMC-8i-Fou" id="wDS-0y-Z5u"/>
+                        <outlet property="epochOneValue" destination="jbR-jP-h5H" id="ygZ-ut-eSD"/>
+                        <outlet property="epochTwoDate" destination="Z72-3M-47C" id="6dv-zR-Cy7"/>
+                        <outlet property="epochTwoValue" destination="vEJ-G5-oGn" id="nLI-hj-OfQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wFT-xZ-TJt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1175" y="486"/>
         </scene>
     </scenes>
 </document>
