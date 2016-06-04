@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--mainViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Formula_Countdown" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="mainViewController" customClass="ViewController" customModule="Formula_Countdown" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jpQ-yk-btD" userLabel="mainView">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jpQ-yk-btD" userLabel="mainView">
                                 <rect key="frame" x="130" y="20" width="340" height="580"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apy-RT-gDs" userLabel="settingsButton">
@@ -48,11 +48,25 @@
                                             <!--2037-12-31 11:00:00 +0000-->
                                         </date>
                                         <connections>
-                                            <action selector="mainDateChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="v3N-zc-IfP"/>
+                                            <action selector="mainDateChanged" destination="BYZ-38-t0r" eventType="valueChanged" id="bBZ-ww-IfN"/>
                                         </connections>
                                     </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PS7-YP-Irb" userLabel="refreshButton">
+                                        <rect key="frame" x="155" y="524" width="30" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                        <state key="normal" title="↺ "/>
+                                        <connections>
+                                            <action selector="mainDateChanged" destination="BYZ-38-t0r" eventType="touchUpInside" id="BQ5-Od-Xfj"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="5Ms-Oi-Cg4"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="340" id="a2w-bH-ARI"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="580" id="m1U-FT-6Rx"/>
+                                    <constraint firstAttribute="height" constant="580" id="wp1-bY-Tft"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -82,7 +96,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BLc-8G-PC4" userLabel="settingsView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLc-8G-PC4" userLabel="settingsView">
                                 <rect key="frame" x="133" y="0.0" width="335" height="600"/>
                                 <subviews>
                                     <view alpha="0.75" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L87-ZB-jwD" userLabel="epochOneView">
@@ -93,7 +107,6 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 <connections>
-                                                    <action selector="validateEpochValues" destination="kby-m4-Pik" eventType="valueChanged" id="zzC-SR-LN4"/>
                                                     <outlet property="delegate" destination="kby-m4-Pik" id="C4z-w8-Ygw"/>
                                                 </connections>
                                             </textField>
@@ -111,6 +124,10 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="335" id="foZ-EF-aeR"/>
+                                            <constraint firstAttribute="height" constant="126" id="ilr-rz-3Lf"/>
+                                        </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wz-OU-Bbz" userLabel="cancelButton">
                                         <rect key="frame" x="186" y="298" width="48" height="30"/>
@@ -141,6 +158,10 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="126" id="KwT-lW-8Fk"/>
+                                            <constraint firstAttribute="width" constant="335" id="vmP-iT-sht"/>
+                                        </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3P-6I-u1s" userLabel="saveButton">
                                         <rect key="frame" x="111" y="298" width="34" height="30"/>
@@ -153,7 +174,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="QCs-dM-Nqt" firstAttribute="centerX" secondItem="BLc-8G-PC4" secondAttribute="centerX" id="3Kf-NG-IPs"/>
+                                    <constraint firstAttribute="width" constant="335" id="BsU-nE-Yue"/>
                                     <constraint firstItem="L87-ZB-jwD" firstAttribute="centerX" secondItem="BLc-8G-PC4" secondAttribute="centerX" id="vn7-2C-fAG"/>
+                                    <constraint firstAttribute="height" constant="600" id="xwv-iX-paG"/>
                                 </constraints>
                             </view>
                         </subviews>

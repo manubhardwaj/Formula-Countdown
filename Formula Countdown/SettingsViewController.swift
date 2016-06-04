@@ -3,8 +3,14 @@
 //  Formula Countdown
 //
 //  Created by Manu Bhardwaj on 6/3/16.
-//  Copyright © 2016 Manu Bhardwaj. All rights reserved.
-//
+//  Copyright © 2016 Manu Bhardwaj.
+/*
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
 
 import UIKit
 
@@ -38,36 +44,16 @@ class SettingsViewController: UIViewController {
     }
     */
     
-    @IBAction func validateEpochValues() {
-        //epochOneValue.text =  String(format: "%.1f", epochOneValue.text!)
-        //epochTwoValue.text = epochTwoValue.text
-    
-    }
     
     @IBAction func loadUserDefaults() {
         
         let defaults = NSUserDefaults.standardUserDefaults()
-        var tmpValue: AnyObject?
         
-        tmpValue = defaults.objectForKey("formulaCountdownEpochOneValue")
-        if(tmpValue != nil) {
-            epochOneValue.text = tmpValue as? String
-        }
-        else {
-            epochOneValue.text = "0"
-        }
+        var tmpValue: AnyObject?
         
         tmpValue = defaults.objectForKey("formulaCountdownEpochOneDate")
         if(tmpValue != nil) {
             epochOneDate.date = tmpValue as! NSDate
-        }
-            
-        tmpValue = defaults.objectForKey("formulaCountdownEpochTwoValue")
-        if(tmpValue != nil) {
-            epochTwoValue.text = tmpValue as? String
-        }
-        else {
-            epochTwoValue.text = "100"
         }
         
         tmpValue = defaults.objectForKey("formulaCountdownEpochTwoDate")
@@ -75,15 +61,26 @@ class SettingsViewController: UIViewController {
             epochTwoDate.date = tmpValue as! NSDate
         }
         
-        validateEpochValues()
+        epochOneValue.text = String(defaults.doubleForKey("formulaCountdownEpochOneValue"))
+        epochTwoValue.text = String(defaults.doubleForKey("formulaCountdownEpochTwoValue"))
+        
     }
     
     @IBAction func saveUserDefaults() {
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(epochOneValue.text, forKey: "formulaCountdownEpochOneValue")
-        defaults.setObject(epochOneDate.date, forKey: "formulaCountdownEpochOneDate")
-        defaults.setObject(epochTwoValue.text, forKey: "formulaCountdownEpochTwoValue")
-        defaults.setObject(epochTwoDate.date, forKey: "formulaCountdownEpochTwoDate")
+        
+        defaults.setObject(epochOneDate.date.earlierDate(epochTwoDate.date), forKey: "formulaCountdownEpochOneDate")
+        defaults.setObject(epochOneDate.date.laterDate(epochTwoDate.date), forKey: "formulaCountdownEpochTwoDate")
+        
+        if(epochOneDate.date.earlierDate(epochTwoDate.date) == epochOneDate.date) {
+            defaults.setDouble(NSString(string: epochOneValue.text!).doubleValue, forKey: "formulaCountdownEpochOneValue")
+            defaults.setDouble(NSString(string: epochTwoValue.text!).doubleValue, forKey: "formulaCountdownEpochTwoValue")
+        }
+        else {
+            defaults.setDouble(NSString(string: epochOneValue.text!).doubleValue, forKey: "formulaCountdownEpochTwoValue")
+            defaults.setDouble(NSString(string: epochTwoValue.text!).doubleValue, forKey: "formulaCountdownEpochOneValue")
+        }
+        
     }
     
     @IBAction func saveSettings() {
