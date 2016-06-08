@@ -14,39 +14,36 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+protocol SettingsViewControllerDelegate {
+    func refreshSettings(controller: SettingsViewController, currentDate: NSDate, epochOneDate: NSDate, epochTwoDate: NSDate, epochOneValue: Double, epochTwoValue: Double)
+}
 
+class SettingsViewController: UIViewController {
+    
     @IBOutlet weak var epochOneValue: UITextField!
     @IBOutlet weak var epochTwoValue: UITextField!
     @IBOutlet weak var epochOneDate: UIDatePicker!
     @IBOutlet weak var epochTwoDate: UIDatePicker!
+    @IBOutlet weak var currentDate: UIDatePicker!
+        
+    var m_delegate: SettingsViewControllerDelegate?
+    var m_currentDate: NSDate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if let tmpCurrentDate = m_currentDate {
+            currentDate.date = tmpCurrentDate
+        }
+        
         loadUserDefaults()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     
     @IBAction func loadUserDefaults() {
-        
         let defaults = NSUserDefaults.standardUserDefaults()
         
         var tmpValue: AnyObject?
@@ -63,10 +60,11 @@ class SettingsViewController: UIViewController {
         
         epochOneValue.text = String(defaults.doubleForKey("formulaCountdownEpochOneValue"))
         epochTwoValue.text = String(defaults.doubleForKey("formulaCountdownEpochTwoValue"))
-        
     }
     
-    @IBAction func saveUserDefaults() {
+    @IBAction func saveSettings() {
+        
+        // Save User Defaults
         let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.setObject(epochOneDate.date.earlierDate(epochTwoDate.date), forKey: "formulaCountdownEpochOneDate")
@@ -81,15 +79,22 @@ class SettingsViewController: UIViewController {
             defaults.setDouble(NSString(string: epochTwoValue.text!).doubleValue, forKey: "formulaCountdownEpochOneValue")
         }
         
-    }
-    
-    @IBAction func saveSettings() {
-        saveUserDefaults()
+        // Assign Delegate
+        if let delegate = m_delegate {
+            delegate.refreshSettings(self,
+                                    currentDate: currentDate.date,
+                                    epochOneDate: epochOneDate.date,
+                                    epochTwoDate: epochTwoDate.date,
+                                    epochOneValue: NSString(string: epochOneValue.text!).doubleValue,
+                                    epochTwoValue: NSString(string: epochTwoValue.text!).doubleValue)
+        }
+        
+        // Close Window
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func cancelSettings() {
+        // Close Window
         dismissViewControllerAnimated(true, completion: nil)
     }
-
 }

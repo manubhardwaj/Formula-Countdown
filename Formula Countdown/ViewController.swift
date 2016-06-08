@@ -14,11 +14,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SettingsViewControllerDelegate {
     
     @IBOutlet weak var mainDate: UIDatePicker!
     @IBOutlet weak var mainLabel: UILabel!
     
+    var m_currentDate: NSDate = NSDate()
     var m_epochOneDate: NSDate = NSDate()
     var m_epochTwoDate: NSDate = NSDate()
     var m_epochOneValue: Double = 0
@@ -26,7 +27,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadUserDefaults()
         mainDateChanged()
     }
   
@@ -35,39 +36,47 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SettingsViewController" {
+            let settingsViewController = segue.destinationViewController as? SettingsViewController
+            if let viewController = settingsViewController {
+                viewController.m_delegate = self
+                viewController.m_currentDate = self.m_currentDate
+            }
+        }
+    }
+    
+    func refreshSettings(controller: SettingsViewController, currentDate: NSDate, epochOneDate: NSDate, epochTwoDate: NSDate, epochOneValue: Double, epochTwoValue: Double) {
+        m_currentDate = currentDate
+        m_epochOneDate = epochOneDate
+        m_epochTwoDate = epochTwoDate
+        m_epochOneValue = epochOneValue
+        m_epochTwoValue = epochTwoValue
+        
+        mainDateChanged()
+    }
+    
     @IBAction func loadUserDefaults() {
-        
         let defaults = NSUserDefaults.standardUserDefaults()
-        
         var tmpValue: AnyObject?
-        
         tmpValue = defaults.objectForKey("formulaCountdownEpochOneDate")
         if(tmpValue != nil) {
             m_epochOneDate = tmpValue as! NSDate
         }
-        
         tmpValue = defaults.objectForKey("formulaCountdownEpochTwoDate")
         if(tmpValue != nil) {
             m_epochTwoDate = tmpValue as! NSDate
         }
-        
         m_epochOneValue = defaults.doubleForKey("formulaCountdownEpochOneValue")
         m_epochTwoValue = defaults.doubleForKey("formulaCountdownEpochTwoValue")
 
     }
     
     @IBAction func mainDateChanged() {
-        
-        loadUserDefaults()
-        
         let tmpTotalTime = (m_epochTwoDate.timeIntervalSince1970 - m_epochOneDate.timeIntervalSince1970)
-        
-        let tmpElapsedTime = (mainDate.date.timeIntervalSince1970 - m_epochOneDate.timeIntervalSince1970)
-        
+        let tmpElapsedTime = (m_currentDate.timeIntervalSince1970 - m_epochOneDate.timeIntervalSince1970)
         let tmpTotalValue: Double = m_epochOneValue + (m_epochTwoValue - m_epochOneValue)*tmpElapsedTime/tmpTotalTime
-        
         mainLabel.text = String(format: "%.1f", tmpTotalValue)
-        
     }
 
 }

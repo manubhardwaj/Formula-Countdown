@@ -24,9 +24,7 @@
                                         <rect key="frame" x="298" y="8" width="22" height="22"/>
                                         <state key="normal" title="⚙"/>
                                         <connections>
-                                            <segue destination="kby-m4-Pik" kind="popoverPresentation" popoverAnchorView="apy-RT-gDs" id="Kit-qh-ni5">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
+                                            <segue destination="kby-m4-Pik" kind="presentation" identifier="SettingsViewController" id="zIp-YD-937"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxN-Ee-RFD" userLabel="mainLabel" colorLabel="IBBuiltInLabel-Green">
@@ -36,29 +34,6 @@
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" cocoaTouchSystemColor="lightTextColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="M7c-1A-3NE" userLabel="mainDate" colorLabel="IBBuiltInLabel-Blue">
-                                        <rect key="frame" x="20" y="459" width="300" height="57"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="486686281.07417899">
-                                            <!--2016-06-03 22:38:01 +0000-->
-                                        </date>
-                                        <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
-                                            <!--1970-01-01 11:00:00 +0000-->
-                                        </date>
-                                        <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
-                                            <!--2037-12-31 11:00:00 +0000-->
-                                        </date>
-                                        <connections>
-                                            <action selector="mainDateChanged" destination="BYZ-38-t0r" eventType="valueChanged" id="bBZ-ww-IfN"/>
-                                        </connections>
-                                    </datePicker>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PS7-YP-Irb" userLabel="refreshButton">
-                                        <rect key="frame" x="155" y="524" width="30" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
-                                        <state key="normal" title="↺ "/>
-                                        <connections>
-                                            <action selector="mainDateChanged" destination="BYZ-38-t0r" eventType="touchUpInside" id="BQ5-Od-Xfj"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -76,13 +51,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mainDate" destination="M7c-1A-3NE" id="cPE-El-NmM"/>
                         <outlet property="mainLabel" destination="ZxN-Ee-RFD" id="J4H-o1-JDG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="777" y="307"/>
+            <point key="canvasLocation" x="595" y="382"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="xaj-ur-D5Z">
@@ -99,29 +73,60 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLc-8G-PC4" userLabel="settingsView">
                                 <rect key="frame" x="133" y="0.0" width="335" height="600"/>
                                 <subviews>
-                                    <view alpha="0.75" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L87-ZB-jwD" userLabel="epochOneView">
-                                        <rect key="frame" x="0.0" y="30" width="335" height="126"/>
+                                    <view alpha="0.75" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PNc-T4-JUi" userLabel="currentView">
+                                        <rect key="frame" x="0.0" y="24" width="335" height="126"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbR-jP-h5H" userLabel="epochValue">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yA8-bL-HyE" userLabel="currentTitle">
+                                                <rect key="frame" x="18" y="33" width="89" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" fixedFrame="YES" highlighted="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="wej-bw-jMi" userLabel="currentDate">
+                                                <rect key="frame" x="0.0" y="67" width="335" height="59"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="486696906.00630301">
+                                                    <!--2016-06-04 01:35:06 +0000-->
+                                                </date>
+                                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                                    <!--1970-01-01 11:00:00 +0000-->
+                                                </date>
+                                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
+                                                    <!--2037-12-31 11:00:00 +0000-->
+                                                </date>
+                                            </datePicker>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="335" id="C1n-Qg-fgF"/>
+                                            <constraint firstAttribute="height" constant="126" id="hSA-ji-xkI"/>
+                                        </constraints>
+                                    </view>
+                                    <view alpha="0.75" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L87-ZB-jwD" userLabel="epochOneView">
+                                        <rect key="frame" x="0.0" y="201" width="335" height="126"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbR-jP-h5H" userLabel="epochValue">
                                                 <rect key="frame" x="75" y="29" width="168" height="30"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="kby-m4-Pik" id="C4z-w8-Ygw"/>
                                                 </connections>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-dw-z40" userLabel="epochTitle">
+                                                <rect key="frame" x="18" y="33" width="49" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="AMC-8i-Fou" userLabel="epochDate">
-                                                <rect key="frame" x="3" y="67" width="332" height="59"/>
+                                                <rect key="frame" x="0.0" y="67" width="335" height="59"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="486696906.00630301">
                                                     <!--2016-06-04 01:35:06 +0000-->
                                                 </date>
                                             </datePicker>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-dw-z40" userLabel="epochTitle">
-                                                <rect key="frame" x="18" y="33" width="49" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <constraints>
@@ -129,18 +134,12 @@
                                             <constraint firstAttribute="height" constant="126" id="ilr-rz-3Lf"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wz-OU-Bbz" userLabel="cancelButton">
-                                        <rect key="frame" x="186" y="298" width="48" height="30"/>
-                                        <state key="normal" title="Cancel"/>
-                                        <connections>
-                                            <action selector="cancelSettings" destination="kby-m4-Pik" eventType="touchUpInside" id="2Zg-N5-aBT"/>
-                                        </connections>
-                                    </button>
                                     <view alpha="0.75" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QCs-dM-Nqt" userLabel="epochTwoView">
-                                        <rect key="frame" x="0.0" y="164" width="335" height="126"/>
+                                        <rect key="frame" x="0.0" y="335" width="335" height="126"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vEJ-G5-oGn" userLabel="epochValue">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vEJ-G5-oGn" userLabel="epochValue">
                                                 <rect key="frame" x="75" y="29" width="168" height="30"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                             </textField>
@@ -153,7 +152,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZj-BH-4yk" userLabel="epochTitle">
                                                 <rect key="frame" x="32" y="33" width="35" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -164,10 +163,17 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3P-6I-u1s" userLabel="saveButton">
-                                        <rect key="frame" x="111" y="298" width="34" height="30"/>
+                                        <rect key="frame" x="111" y="469" width="34" height="30"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="saveSettings" destination="kby-m4-Pik" eventType="touchUpInside" id="E5E-pC-ecc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wz-OU-Bbz" userLabel="cancelButton">
+                                        <rect key="frame" x="186" y="469" width="48" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelSettings" destination="kby-m4-Pik" eventType="touchUpInside" id="2Zg-N5-aBT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -187,6 +193,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="currentDate" destination="wej-bw-jMi" id="R7T-9D-5ZI"/>
                         <outlet property="epochOneDate" destination="AMC-8i-Fou" id="wDS-0y-Z5u"/>
                         <outlet property="epochOneValue" destination="jbR-jP-h5H" id="ygZ-ut-eSD"/>
                         <outlet property="epochTwoDate" destination="Z72-3M-47C" id="6dv-zR-Cy7"/>
@@ -195,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wFT-xZ-TJt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1175" y="486"/>
+            <point key="canvasLocation" x="1331" y="413"/>
         </scene>
     </scenes>
 </document>
