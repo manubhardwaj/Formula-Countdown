@@ -36,8 +36,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         let tmpTotalTime = (m_epochTwoDate.timeIntervalSince1970 - m_epochOneDate.timeIntervalSince1970)
         let tmpElapsedTime = (m_currentDate.timeIntervalSince1970 - m_epochOneDate.timeIntervalSince1970)
-        let tmpTotalValue: Double = m_epochOneValue + (m_epochTwoValue - m_epochOneValue)*tmpElapsedTime/tmpTotalTime
+        var tmpTotalValue: Double = m_epochOneValue + (m_epochTwoValue - m_epochOneValue)*tmpElapsedTime/tmpTotalTime
         
+        if(tmpTotalValue.isNaN) {
+            tmpTotalValue = 0.0
+        }
         mainLabel.text = String(format: "%.1f", tmpTotalValue)
         
     }
