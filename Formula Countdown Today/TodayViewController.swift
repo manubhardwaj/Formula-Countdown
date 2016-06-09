@@ -17,30 +17,21 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
         
-        let m_currentDate: NSDate = NSDate()
-        var m_epochOneDate: NSDate = NSDate()
-        var m_epochTwoDate: NSDate = NSDate()
-        var m_epochOneValue: Double = 0
-        var m_epochTwoValue: Double = 0
+        let epochOneValue: Double = 231.5
+        let epochTwoValue: Double = 173.8
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         
-        if let tmpDateOne = defaults.objectForKey("formulaCountdownEpochOneDate") {
-            m_epochOneDate = tmpDateOne as! NSDate
-        }
-        if let tmpDateTwo = defaults.objectForKey("formulaCountdownEpochTwoDate") {
-            m_epochTwoDate = tmpDateTwo as! NSDate
-        }
-        m_epochOneValue = defaults.doubleForKey("formulaCountdownEpochOneValue")
-        m_epochTwoValue = defaults.doubleForKey("formulaCountdownEpochTwoValue")
+        let epochOneDate: NSDate = formatter.dateFromString("2016-06-09 12:00:00 +0000")!
+        let epochTwoDate: NSDate = formatter.dateFromString("2016-12-23 12:00:00 +0000")!
         
-        let tmpTotalTime = (m_epochTwoDate.timeIntervalSince1970 - m_epochOneDate.timeIntervalSince1970)
-        let tmpElapsedTime = (m_currentDate.timeIntervalSince1970 - m_epochOneDate.timeIntervalSince1970)
-        var tmpTotalValue: Double = m_epochOneValue + (m_epochTwoValue - m_epochOneValue)*tmpElapsedTime/tmpTotalTime
+        let currentDate: NSDate = NSDate()
         
-        if(tmpTotalValue.isNaN) {
-            tmpTotalValue = 0.0
-        }
+        let tmpTotalTime = (epochTwoDate.timeIntervalSince1970 - epochOneDate.timeIntervalSince1970)
+        let tmpElapsedTime = (currentDate.timeIntervalSince1970 - epochOneDate.timeIntervalSince1970)
+        let tmpTotalValue: Double = epochOneValue + (epochTwoValue - epochOneValue)*tmpElapsedTime/tmpTotalTime
+        
         mainLabel.text = String(format: "%.1f", tmpTotalValue)
         
     }

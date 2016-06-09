@@ -43,6 +43,11 @@ class SettingsViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+
+    @IBAction func userTappedBackground(sender: AnyObject) {
+        view.endEditing(true)
+    }
+    
     @IBAction func loadUserDefaults() {
         let defaults = NSUserDefaults.standardUserDefaults()
         

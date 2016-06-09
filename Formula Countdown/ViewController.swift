@@ -18,6 +18,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     
     @IBOutlet weak var mainDate: UIDatePicker!
     @IBOutlet weak var mainLabel: UILabel!
+    @IBOutlet weak var secondaryLabel: UILabel!
     
     var m_currentDate: NSDate = NSDate()
     var m_epochOneDate: NSDate = NSDate()
@@ -73,12 +74,20 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     @IBAction func mainDateChanged() {
         let tmpTotalTime = (m_epochTwoDate.timeIntervalSince1970 - m_epochOneDate.timeIntervalSince1970)
         let tmpElapsedTime = (m_currentDate.timeIntervalSince1970 - m_epochOneDate.timeIntervalSince1970)
+        
         var tmpTotalValue: Double = m_epochOneValue + (m_epochTwoValue - m_epochOneValue)*tmpElapsedTime/tmpTotalTime
+        var tmpSecondaryValue = 2300 - (tmpTotalValue - m_epochTwoValue)*3500/((tmpTotalTime - tmpElapsedTime)/60/60/24)
         
         if(tmpTotalValue.isNaN) {
             tmpTotalValue = 0.0
         }
+        if(tmpSecondaryValue.isNaN) {
+            tmpSecondaryValue = 0.0
+        }
+        
         mainLabel.text = String(format: "%.1f", tmpTotalValue)
+        secondaryLabel.text = String(format: "%.0f", tmpSecondaryValue)
+        
     }
 
 }
