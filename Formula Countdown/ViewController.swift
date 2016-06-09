@@ -38,10 +38,10 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SettingsViewController" {
-            let settingsViewController = segue.destinationViewController as? SettingsViewController
-            if let viewController = settingsViewController {
-                viewController.m_delegate = self
-                viewController.m_currentDate = self.m_currentDate
+            let tmpSettingsViewController = segue.destinationViewController as? SettingsViewController
+            if let tmpViewController = tmpSettingsViewController {
+                tmpViewController.m_delegate = self
+                tmpViewController.m_currentDate = self.m_currentDate
             }
         }
     }
@@ -58,14 +58,12 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     
     @IBAction func loadUserDefaults() {
         let defaults = NSUserDefaults.standardUserDefaults()
-        var tmpValue: AnyObject?
-        tmpValue = defaults.objectForKey("formulaCountdownEpochOneDate")
-        if(tmpValue != nil) {
-            m_epochOneDate = tmpValue as! NSDate
+
+        if let tmpDateOne = defaults.objectForKey("formulaCountdownEpochOneDate") {
+            m_epochOneDate = tmpDateOne as! NSDate
         }
-        tmpValue = defaults.objectForKey("formulaCountdownEpochTwoDate")
-        if(tmpValue != nil) {
-            m_epochTwoDate = tmpValue as! NSDate
+        if let tmpDateTwo = defaults.objectForKey("formulaCountdownEpochTwoDate") {
+            m_epochTwoDate = tmpDateTwo as! NSDate
         }
         m_epochOneValue = defaults.doubleForKey("formulaCountdownEpochOneValue")
         m_epochTwoValue = defaults.doubleForKey("formulaCountdownEpochTwoValue")
