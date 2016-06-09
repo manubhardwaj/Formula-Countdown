@@ -4,10 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Formula Countdown Today.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Formula Countdown Widget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Formula Countdown.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>Formula Countown Today.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -23,6 +38,21 @@
 			<true/>
 		</dict>
 		<key>32AAE9BA1BB7327A00E2E887</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>32FD56FB1D092DC7003BF9C7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>32FD57111D092EC1003BF9C7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>32FD57251D093A1B003BF9C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
