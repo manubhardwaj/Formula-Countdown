@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0800"
    wasCreatedForAppExtension = "YES"
    version = "2.0">
    <BuildAction
@@ -67,16 +67,26 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "32AAE99B1BB7327900E2E887"
-            BuildableName = "Formula Countdown.app"
-            BlueprintName = "Formula Countdown"
+            BlueprintIdentifier = "32FD57251D093A1B003BF9C7"
+            BuildableName = "Formula Countdown Today.appex"
+            BlueprintName = "Formula Countdown Today"
             ReferencedContainer = "container:Formula Countdown.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "32FD57251D093A1B003BF9C7"
+            BuildableName = "Formula Countdown Today.appex"
+            BlueprintName = "Formula Countdown Today"
+            ReferencedContainer = "container:Formula Countdown.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
