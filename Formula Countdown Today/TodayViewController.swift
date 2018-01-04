@@ -17,16 +17,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
         
-        let epochOneValue: Double = 228.6
-        let epochTwoValue: Double = 173.8
+        let epochOneValue: Double = 233
+        let epochTwoValue: Double = 174.9
         
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         
-        let epochOneDate: NSDate = formatter.dateFromString("2016-09-17 12:00:00 +0000")!
-        let epochTwoDate: NSDate = formatter.dateFromString("2017-03-09 12:00:00 +0000")!
+        let epochOneDate: Date = formatter.date(from:"2018-01-01 12:00:00 +0000")!
+        let epochTwoDate: Date = formatter.date(from:"2018-11-04 12:00:00 +0000")!
         
-        let currentDate: NSDate = NSDate()
+        let currentDate: Date = Date()
         
         let tmpTotalTime = (epochTwoDate.timeIntervalSince1970 - epochOneDate.timeIntervalSince1970)
         let tmpElapsedTime = (currentDate.timeIntervalSince1970 - epochOneDate.timeIntervalSince1970)
@@ -48,7 +48,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
 
-        completionHandler(NCUpdateResult.NewData)
+        completionHandler(NCUpdateResult.newData)
     }
     
 }

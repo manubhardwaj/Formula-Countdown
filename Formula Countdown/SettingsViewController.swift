@@ -27,7 +27,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var currentDate: UIDatePicker!
         
     var m_delegate: SettingsViewControllerDelegate?
-    var m_currentDate: NSDate?
+    var m_currentDate: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,63 +43,62 @@ class SettingsViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-
     @IBAction func userTappedBackground(sender: AnyObject) {
         view.endEditing(true)
     }
     
     @IBAction func loadUserDefaults() {
-        let defaults = NSUserDefaults.standardUserDefaults()
         
-        var tmpValue: AnyObject?
+        let defaults = UserDefaults.standard
+        var tmpValue: Date?
         
-        tmpValue = defaults.objectForKey("formulaCountdownEpochOneDate")
+        tmpValue = defaults.object(forKey:"formulaCountdownEpochOneDate") as! Date?
         if(tmpValue != nil) {
-            epochOneDate.date = tmpValue as! NSDate
+            epochOneDate.date = tmpValue as! Date
         }
         
-        tmpValue = defaults.objectForKey("formulaCountdownEpochTwoDate")
+        tmpValue = defaults.object(forKey:"formulaCountdownEpochTwoDate") as! Date?
         if(tmpValue != nil) {
-            epochTwoDate.date = tmpValue as! NSDate
+            epochTwoDate.date = tmpValue as! Date
         }
         
-        epochOneValue.text = String(defaults.doubleForKey("formulaCountdownEpochOneValue"))
-        epochTwoValue.text = String(defaults.doubleForKey("formulaCountdownEpochTwoValue"))
+        epochOneValue.text = String(defaults.double(forKey:"formulaCountdownEpochOneValue"))
+        epochTwoValue.text = String(defaults.double(forKey:"formulaCountdownEpochTwoValue"))
     }
     
     @IBAction func saveSettings() {
         
         // Save User Defaults
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         
-        defaults.setObject(epochOneDate.date.earlierDate(epochTwoDate.date), forKey: "formulaCountdownEpochOneDate")
-        defaults.setObject(epochOneDate.date.laterDate(epochTwoDate.date), forKey: "formulaCountdownEpochTwoDate")
+        defaults.set((epochOneDate.date < epochTwoDate.date) ? epochOneDate.date : epochTwoDate.date, forKey: "formulaCountdownEpochOneDate")
+        defaults.set((epochOneDate.date > epochTwoDate.date) ? epochOneDate.date : epochTwoDate.date, forKey: "formulaCountdownEpochTwoDate")
         
-        if(epochOneDate.date.earlierDate(epochTwoDate.date) == epochOneDate.date) {
-            defaults.setDouble(NSString(string: epochOneValue.text!).doubleValue, forKey: "formulaCountdownEpochOneValue")
-            defaults.setDouble(NSString(string: epochTwoValue.text!).doubleValue, forKey: "formulaCountdownEpochTwoValue")
+        if(epochOneDate.date < epochTwoDate.date) {
+            defaults.set(NSString(string: epochOneValue.text!).doubleValue, forKey: "formulaCountdownEpochOneValue")
+            defaults.set(NSString(string: epochTwoValue.text!).doubleValue, forKey: "formulaCountdownEpochTwoValue")
         }
         else {
-            defaults.setDouble(NSString(string: epochOneValue.text!).doubleValue, forKey: "formulaCountdownEpochTwoValue")
-            defaults.setDouble(NSString(string: epochTwoValue.text!).doubleValue, forKey: "formulaCountdownEpochOneValue")
+            defaults.set(NSString(string: epochOneValue.text!).doubleValue, forKey: "formulaCountdownEpochTwoValue")
+            defaults.set(NSString(string: epochTwoValue.text!).doubleValue, forKey: "formulaCountdownEpochOneValue")
         }
         
         // Assign Delegate
         if let delegate = m_delegate {
-            delegate.refreshSettings(self,
-                                    currentDate: currentDate.date,
-                                    epochOneDate: epochOneDate.date,
-                                    epochTwoDate: epochTwoDate.date,
+            delegate.refreshSettings(controller: self,
+                                     currentDate: currentDate.date as NSDate,
+                                     epochOneDate: epochOneDate.date as NSDate,
+                                     epochTwoDate: epochTwoDate.date as NSDate,
                                     epochOneValue: NSString(string: epochOneValue.text!).doubleValue,
                                     epochTwoValue: NSString(string: epochTwoValue.text!).doubleValue)
         }
         
         // Close Window
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancelSettings() {
         // Close Window
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }

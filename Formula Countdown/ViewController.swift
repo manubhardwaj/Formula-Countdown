@@ -15,6 +15,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 import UIKit
 
 class ViewController: UIViewController, SettingsViewControllerDelegate {
+    func refreshSettings(controller: SettingsViewController, currentDate: NSDate, epochOneDate: NSDate, epochTwoDate: NSDate, epochOneValue: Double, epochTwoValue: Double) {
+        m_currentDate = currentDate
+        m_epochOneDate = epochOneDate
+        m_epochTwoDate = epochTwoDate
+        m_epochOneValue = epochOneValue
+        m_epochTwoValue = epochTwoValue
+        
+        mainDateChanged()
+    }
+    
     
     @IBOutlet weak var mainDate: UIDatePicker!
     @IBOutlet weak var mainLabel: UILabel!
@@ -37,41 +47,34 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SettingsViewController" {
-            let tmpSettingsViewController = segue.destinationViewController as? SettingsViewController
+            let tmpSettingsViewController = segue.destination as? SettingsViewController
             if let tmpViewController = tmpSettingsViewController {
                 tmpViewController.m_delegate = self
-                tmpViewController.m_currentDate = self.m_currentDate
+                tmpViewController.m_currentDate = self.m_currentDate as Date
             }
         }
     }
     
-    func refreshSettings(controller: SettingsViewController, currentDate: NSDate, epochOneDate: NSDate, epochTwoDate: NSDate, epochOneValue: Double, epochTwoValue: Double) {
-        m_currentDate = currentDate
-        m_epochOneDate = epochOneDate
-        m_epochTwoDate = epochTwoDate
-        m_epochOneValue = epochOneValue
-        m_epochTwoValue = epochTwoValue
-        
-        mainDateChanged()
-    }
-    
     @IBAction func loadUserDefaults() {
-        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let defaults = UserDefaults.standard
 
-        if let tmpDateOne = defaults.objectForKey("formulaCountdownEpochOneDate") {
+        if let tmpDateOne = defaults.object(forKey: "formulaCountdownEpochOneDate") {
             m_epochOneDate = tmpDateOne as! NSDate
         }
-        if let tmpDateTwo = defaults.objectForKey("formulaCountdownEpochTwoDate") {
+        if let tmpDateTwo = defaults.object(forKey: "formulaCountdownEpochTwoDate") {
             m_epochTwoDate = tmpDateTwo as! NSDate
         }
-        m_epochOneValue = defaults.doubleForKey("formulaCountdownEpochOneValue")
-        m_epochTwoValue = defaults.doubleForKey("formulaCountdownEpochTwoValue")
+
+        m_epochOneValue = defaults.double(forKey: "formulaCountdownEpochOneValue")
+        m_epochTwoValue = defaults.double(forKey: "formulaCountdownEpochTwoValue")
 
     }
     
     @IBAction func mainDateChanged() {
+        
         let tmpTotalTime = (m_epochTwoDate.timeIntervalSince1970 - m_epochOneDate.timeIntervalSince1970)
         let tmpElapsedTime = (m_currentDate.timeIntervalSince1970 - m_epochOneDate.timeIntervalSince1970)
         
@@ -87,7 +90,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         
         mainLabel.text = String(format: "%.1f", tmpTotalValue)
         secondaryLabel.text = String(format: "%.0f", tmpSecondaryValue)
-        
+
     }
 
 }
