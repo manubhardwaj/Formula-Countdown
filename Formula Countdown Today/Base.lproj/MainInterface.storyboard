@@ -28,21 +28,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1750" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uY-wi-iqz" userLabel="calorieLabel">
-                                <rect key="frame" x="16" y="0.0" width="288" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="0uY-wi-iqz" firstAttribute="width" secondItem="GcN-lo-r42" secondAttribute="width" id="BtS-Nc-OUd"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="GcN-lo-r42" secondAttribute="bottom" id="G8s-Hr-dmV" userLabel="mainLabel.bottom = Bottom Layout Guide.top"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GcN-lo-r42" secondAttribute="trailing" id="YYB-Kt-LtC" userLabel="mainLabel.trailing = trailingMargin"/>
-                            <constraint firstItem="0uY-wi-iqz" firstAttribute="leading" secondItem="GcN-lo-r42" secondAttribute="leading" id="Yy9-1a-hLo"/>
                             <constraint firstItem="GcN-lo-r42" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="fpC-q8-NH5"/>
                             <constraint firstItem="GcN-lo-r42" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="sKL-kU-VF4"/>
-                            <constraint firstItem="0uY-wi-iqz" firstAttribute="top" secondItem="GcN-lo-r42" secondAttribute="top" id="wrG-Iw-Q0o" userLabel="calorieLabel.top = mainLabel.bottom + 10"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -52,7 +43,6 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="70"/>
                     <connections>
-                        <outlet property="calorieLabel" destination="0uY-wi-iqz" id="gnI-fh-HEH"/>
                         <outlet property="mainLabel" destination="GcN-lo-r42" id="eea-JK-094"/>
                     </connections>
                 </viewController>
