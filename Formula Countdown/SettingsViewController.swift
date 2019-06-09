@@ -54,12 +54,12 @@ class SettingsViewController: UIViewController {
         
         tmpValue = defaults.object(forKey:"formulaCountdownEpochOneDate") as! Date?
         if(tmpValue != nil) {
-            epochOneDate.date = tmpValue as! Date
+            epochOneDate.date = tmpValue as Date
         }
         
         tmpValue = defaults.object(forKey:"formulaCountdownEpochTwoDate") as! Date?
         if(tmpValue != nil) {
-            epochTwoDate.date = tmpValue as! Date
+            epochTwoDate.date = tmpValue as Date
         }
         
         epochOneValue.text = String(defaults.double(forKey:"formulaCountdownEpochOneValue"))
