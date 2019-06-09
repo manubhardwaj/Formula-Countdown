@@ -79,7 +79,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         let tmpElapsedTime = (m_currentDate.timeIntervalSince1970 - m_epochOneDate.timeIntervalSince1970)
         
         var tmpTotalValue: Double = m_epochOneValue + (m_epochTwoValue - m_epochOneValue)*tmpElapsedTime/tmpTotalTime
-        var tmpSecondaryValue = 2400 - (tmpTotalValue - m_epochTwoValue)*3500/((tmpTotalTime - tmpElapsedTime)/60/60/24)
+        var tmpSecondaryValue = 2350 - (tmpTotalValue - m_epochTwoValue)*3500/((tmpTotalTime - tmpElapsedTime)/60/60/24)
         
         if(tmpTotalValue.isNaN) {
             tmpTotalValue = 0.0
