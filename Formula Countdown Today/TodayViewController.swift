@@ -17,14 +17,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
         
-        let epochOneValue: Double = 107.5
+        let epochOneValue: Double = 238/0.4536
         let epochTwoValue: Double = 79.8
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         
-        let epochOneDate: Date = formatter.date(from:"2019-06-08")!
-        let epochTwoDate: Date = formatter.date(from:"2019-12-31")!
+        let epochOneDate: Date = formatter.date(from:"2019-11-27")!
+        let epochTwoDate: Date = formatter.date(from:"2020-12-31")!
         
         
         let currentDate: Date = Date()
